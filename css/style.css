@@ -1,30 +1,27 @@
-/* 1. تعريف المتغيرات والألوان الأساسية */
+/* =========================================
+   1. المتغيرات والوضع الليلي (Root & Dark Mode)
+   ========================================= */
 :root {
     --main-brown: #8C6F56;
-    /* البني المستخرج من الصورة */
     --bg-light: #f8f3ed;
-    /* لون بيج سادة للأقسام */
     --card-bg: #ffffff;
-    /* خلفية البطاقة نهاراً */
     --text-color: #333;
-    /* لون النص */
     --nav-bg: rgba(255, 255, 255, 0.8);
     --card-shadow: rgba(0, 0, 0, 0.05);
+    --transition: 0.4s ease;
 }
 
-/* 2. إعدادات الوضع الليلي (Dark Mode) */
 html:has(#dark-mode-toggle:checked) {
     --bg-light: #1a1a1a;
-    /* أسود هادئ للخلفية */
     --card-bg: #2d2620;
-    /* بني غامق جداً للبطاقات */
     --text-color: #f5f5f5;
-    /* نص فاتح */
     --nav-bg: rgba(26, 31, 24, 0.9);
     --card-shadow: rgba(0, 0, 0, 0.3);
 }
 
-/* 3. تنسيقات عامة للموقع */
+/* =========================================
+   2. الإعدادات العامة (General Styles)
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -39,11 +36,15 @@ body {
     font-family: 'Segoe UI', 'Roboto', sans-serif;
     background-color: var(--bg-light);
     color: var(--text-color);
-    transition: 0.4s ease;
+    transition: var(--transition);
     line-height: 1.6;
+    overflow-x: hidden;
+    /* لمنع التمرير الأفقي بسبب الفوتر */
 }
 
-/* 4. تنسيق النيفبار (Navbar) */
+/* =========================================
+   3. النيفبار (Navbar)
+   ========================================= */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -59,26 +60,20 @@ body {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* إصلاح قسم البروفايل (الاسم تحت الصورة وباللون البني) */
 .profile-section {
     display: flex;
     flex-direction: column;
-    /* جعل الاسم تحت الصورة */
     align-items: center;
-    color: var(--main-brown) !important;
-    /* لون بني دائماً */
+    color: var(--main-brown);
 }
 
 .profile-section i {
     font-size: 35px;
-    color: var(--main-brown);
 }
 
 .profile-section span {
     font-size: 13px;
     font-weight: bold;
-    margin-top: 2px;
-    color: var(--main-brown);
 }
 
 .nav-links {
@@ -98,29 +93,39 @@ body {
     color: var(--main-brown);
 }
 
-/* 5. تنسيق الأقسام */
+/* =========================================
+   4. الصفحة الرئيسية (Hero Section)
+   ========================================= */
 .hero-section {
     height: 100vh;
-    background-image: url('imge/photo.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-    /* ضروري للتعتيم */
+    background: linear-gradient(rgba(248, 243, 237, 0.7), rgba(248, 243, 237, 0.7)),
+        url('../imge/photo.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-/* إصلاح: تعتيم الصفحة الرئيسية في الوضع الليلي */
-html:has(#dark-mode-toggle:checked) .hero-section::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    /* طبقة تعتيم سوداء شفافة */
+.hero-content {
+    max-width: 800px;
+    padding: 20px;
 }
 
+.hero-content h1 {
+    font-size: 3.5rem;
+    color: var(--main-brown);
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    color: var(--main-brown);
+    font-weight: 500;
+}
+
+/* =========================================
+   5. تنسيقات الأقسام العامة (Sections)
+   ========================================= */
 .full-section {
     min-height: 100vh;
     padding: 100px 10%;
@@ -135,10 +140,11 @@ html:has(#dark-mode-toggle:checked) .hero-section::after {
     color: var(--main-brown);
     font-size: 2.5rem;
     margin-bottom: 40px;
-    font-weight: bold;
 }
 
-/* 6. تنسيق المهارات */
+/* =========================================
+   6. المهارات والمشاريع (Skills & Projects)
+   ========================================= */
 .skills-grid {
     display: flex;
     gap: 20px;
@@ -148,20 +154,19 @@ html:has(#dark-mode-toggle:checked) .hero-section::after {
 
 .skill-item {
     background: var(--card-bg);
-    padding: 15px 30px;
+    padding: 12px 25px;
     border-radius: 50px;
     box-shadow: 0 5px 15px var(--card-shadow);
     border: 1px solid var(--main-brown);
     font-weight: bold;
-    color: var(--text-color);
 }
 
-/* 7. تنسيق المشاريع */
 .projects-container {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
     justify-content: center;
+    width: 100%;
 }
 
 .project-card {
@@ -170,13 +175,12 @@ html:has(#dark-mode-toggle:checked) .hero-section::after {
     overflow: hidden;
     width: 320px;
     box-shadow: 0 10px 20px var(--card-shadow);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .project-card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .card-image img {
@@ -186,22 +190,17 @@ html:has(#dark-mode-toggle:checked) .hero-section::after {
 }
 
 .card-content {
-    padding: 25px;
+    padding: 20px;
 }
 
 .card-content h3 {
     color: var(--main-brown);
-    margin-bottom: 15px;
-    font-size: 1.4rem;
+    margin-bottom: 10px;
 }
 
-.card-content p {
-    color: var(--text-color);
-    opacity: 0.8;
-    font-size: 0.95rem;
-}
-
-/* 8. التحكم في الأيقونات وأزرار اللغة */
+/* =========================================
+   7. أدوات التحكم (Controls & Toggle)
+   ========================================= */
 .nav-controls {
     display: flex;
     align-items: center;
@@ -209,29 +208,22 @@ html:has(#dark-mode-toggle:checked) .hero-section::after {
 }
 
 .lang-btn {
-    background: none;
+    text-decoration: none;
     border: 2px solid var(--main-brown);
     color: var(--main-brown);
-    /* النص بني من البداية */
-    padding: 5px 12px;
-    cursor: pointer;
+    padding: 4px 10px;
     border-radius: 5px;
     font-weight: bold;
     transition: 0.3s;
 }
 
-/* إصلاح: تغطية الزر باللون البني عند التأشير */
 .lang-btn:hover {
-    background-color: var(--main-brown);
-    color: #ffffff;
-}
-
-#dark-mode-toggle {
-    display: none;
+    background: var(--main-brown);
+    color: #fff;
 }
 
 .theme-icon {
-    font-size: 24px;
+    font-size: 22px;
     cursor: pointer;
     color: var(--main-brown);
 }
@@ -240,200 +232,125 @@ html:has(#dark-mode-toggle:checked) .hero-section::after {
     display: none;
 }
 
+/* تبديل الأيقونات */
 html:has(#dark-mode-toggle:checked) .moon-icon {
     display: none;
 }
 
 html:has(#dark-mode-toggle:checked) .sun-icon {
-    display: inline-block;
+    display: block;
     color: #ffdb58;
 }
 
-/* 9. التوافق مع الجوال */
-@media (max-width: 768px) {
-    .projects-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .navbar {
-        padding: 10px 2%;
-    }
-
-    .nav-links {
-        display: none;
-    }
-}
-
-/* تنسيق القسم الرئيسي لضمان التوسيط الكامل */
-.hero-section {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    /* توسيط أفقي */
-    align-items: center;
-    /* توسيط عمودي */
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-/* تنسيق محتوى النص باللون البني */
-.hero-content {
-    z-index: 5;
-    /* لضمان ظهوره فوق الخلفية */
-    width: 100%;
-    max-width: 800px;
-    padding: 20px;
-}
-
-.hero-content h1 {
-    font-size: 3.5rem;
-    color: #8C6F56;
-    /* لونك البني المعتمد */
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-.hero-content p {
-    font-size: 1.6rem;
-    color: #8C6F56;
-    /* لونك البني المعتمد */
-    line-height: 1.6;
-    font-weight: 500;
-}
-
-/* الوضع الليلي: تفتيح البني قليلاً ليبقى واضحاً في الظلام */
-html:has(#dark-mode-toggle:checked) .hero-content h1,
-html:has(#dark-mode-toggle:checked) .hero-content p {
-    color: #b59a83;
-    /* درجة بني فاتحة ومريحة للعين */
-}
-
-/* تنسيق قسم تواصل معي - جعل الصندوق كبيراً */
+/* =========================================
+   8. قسم التواصل (Contact Form)
+   ========================================= */
 .contact-container {
-    width: 90%;
-    max-width: 800px;
-    margin: 150px;
+    width: 100%;
+    max-width: 600px;
     background: var(--card-bg);
-    padding: 40px;
+    padding: 30px;
     border-radius: 20px;
     box-shadow: 0 10px 30px var(--card-shadow);
-    display: block;
 }
 
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
     text-align: right;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 5px;
 }
 
 .form-group label {
     color: var(--main-brown);
     font-weight: bold;
-    font-size: 1rem;
 }
 
 .form-group input,
 .form-group textarea {
-    padding: 15px;
-    /* تكبير مساحة الكتابة قليلاً */
+    padding: 12px;
     border: 1px solid rgba(140, 111, 86, 0.3);
-    border-radius: 10px;
+    border-radius: 8px;
     background: var(--bg-light);
     color: var(--text-color);
-    font-family: inherit;
     outline: none;
-    transition: 0.3s;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: var(--main-brown);
-    box-shadow: 0 0 8px rgba(140, 111, 86, 0.2);
 }
 
 .form-group textarea {
-    height: 150px;
-    /* زيادة طول مربع الرسالة */
+    height: 120px;
     resize: none;
 }
 
-/* زر الإرسال - تم تعديله ليكون في الوسط */
 .send-btn {
-    background-color: var(--main-brown);
-    color: white;
-    padding: 12px 40px;
-    /* زيادة العرض الجانبي للزر ليظهر بشكل أرتب */
+    background: var(--main-brown);
+    color: #fff;
+    padding: 10px 30px;
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s ease;
-    font-size: 1.1rem;
-    margin: 20px auto 0;
-    /* التوسيط: margin-left و margin-right بقيمة auto */
-    width: fit-content;
-    /* الزر يأخذ حجم النص فقط لكي يتوسط */
-    display: block;
-    /* لضمان عمل التوسيط */
+    align-self: center;
+    transition: 0.3s;
 }
 
 .send-btn:hover {
-    background-color: #6d5642;
-    transform: translateY(-2px);
+    opacity: 0.9;
+    transform: scale(1.05);
 }
 
-/* --- الفوتر (الشريط البني الممتد بالكامل) --- */
+/* =========================================
+   10. التوافق مع الجوال (Responsive Design)
+   ========================================= */
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+        /* يسمح للعناصر بالنزول لسطر جديد عند ضيق المساحة */
+        justify-content: center;
+        /* يضمن بقاء العناصر في المنتصف */
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .nav-links {
+        order: 2;
+        /* يجعل الروابط تظهر في السطر الثاني */
+        width: 100%;
+        /* تأخذ العرض كامل لضمان التنسيق */
+        justify-content: center;
+        gap: 15px;
+        font-size: 0.85rem;
+    }
+
+    .profile-section {
+        order: 1;
+        /* يبقى البروفايل في الأعلى */
+    }
+
+    .nav-controls {
+        order: 1;
+        /* تبقى أزرار اللغة والوضع الليلي في الأعلى بجانب البروفايل */
+    }
+
+    /* تصغير نصوص الهيرو لتناسب الشاشة الصغيرة */
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+}
+
 .main-footer {
-    background-color: #8C6F56;
-    /* لونك البني المعتمد */
-    color: #ffffff;
+    background-color: var(--main-brown);
+    color: #fff;
     text-align: center;
     padding: 20px 0;
-    width: 100vw;
-    /* يغطي عرض الشاشة بالكامل */
-    position: relative;
-    margin-right: calc(-50vw + 50%);
-    /* سر التوسيط ليمتد للحواف */
-    margin-left: calc(-50vw + 50%);
-    margin-top: 60px;
-}
-
-/* --- تركيز خاص على الوضع الليلي (Dark Mode) --- */
-
-/* 1. تحويل خلفية الصندوق للون غامق */
-html:has(#dark-mode-toggle:checked) .contact-container {
-    background: #2d2620;
-    /* بني غامق جداً متناسق مع تصميمك */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-/* 2. تحويل حقول الإدخال لتناسب الظلام */
-html:has(#dark-mode-toggle:checked) .form-group input,
-html:has(#dark-mode-toggle:checked) .form-group textarea {
-    background-color: #1a1a1a;
-    border: 1px solid #4a3f35;
-    color: #f8f3ed;
-}
-
-/* 3. تغيير لون شريط الحقوق في الليل ليصبح أكثر فخامة */
-html:has(#dark-mode-toggle:checked) .main-footer {
-    background-color: #1a1510;
-    /* درجة أغمق لراحة العين */
-    border-top: 1px solid #8C6F56;
-}
-
-/* 4. تغيير لون نصوص العناوين داخل الصندوق في الليل */
-html:has(#dark-mode-toggle:checked) .form-group label,
-html:has(#dark-mode-toggle:checked) .section-title {
-    color: #b59a83;
-    /* بني فاتح يلمع في الظلام */
+    margin-top: 50px;
 }

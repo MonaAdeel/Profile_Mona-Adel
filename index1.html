@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mona Adel Page</title>
+    <title>Mona Adel | Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@300;400;500&display=swap"
@@ -16,6 +16,18 @@
     <input type="checkbox" id="dark-mode-toggle" style="display: none;">
 
     <nav class="navbar">
+        <div class="profile-section">
+            <i class="fa-solid fa-user-circle"></i>
+            <span>Mona Adel</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
 
         <div class="nav-controls">
             <a href="index1.html" class="lang-btn">EN</a>
@@ -25,24 +37,11 @@
                 <i class="fas fa-sun sun-icon"></i>
             </label>
         </div>
-
-        <ul class="nav-links">
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#home">Home</a></li>
-        </ul>
-        </div>
-        <div class="profile-section">
-            <i class="fa-solid fa-user-circle"></i>
-            <span>Mona Adel</span>
-        </div>
     </nav>
 
     <section id="home" class="hero-section">
         <div class="hero-content">
-            <p>Hello</p>
+            <p>Welcome</p>
             <h1>Mona Adel</h1>
             <p>Creative designer striving to transform ideas into visually appealing and user-friendly experiences.</p>
         </div>
@@ -54,8 +53,7 @@
             <p>I am an Information Technology student aiming to develop my skills and deepen my understanding of the
                 technologies shaping our digital present and future. I believe technology is not just tools and
                 programs, but a way to create innovative solutions that make people's lives easier and connect them to
-                information quickly and efficiently. My ambition is to be part of this evolving world by designing
-                effective systems and delivering smart ideas that make a real difference.</p>
+                information quickly and efficiently.</p>
         </div>
     </section>
 
@@ -70,7 +68,6 @@
 
     <section id="projects" class="projects-section">
         <h2 class="section-title">My Creative Projects</h2>
-
         <div class="projects-container">
             <div class="project-card">
                 <div class="card-image">
@@ -78,19 +75,16 @@
                 </div>
                 <div class="card-content">
                     <h3>Visual Identity (Anime App)</h3>
-                    <p>User interface design for an entertainment app for anime fans, featuring vibrant colors and
-                        attractive characters.</p>
+                    <p>User interface design for an entertainment app for anime fans, featuring vibrant colors.</p>
                 </div>
             </div>
-
             <div class="project-card">
                 <div class="card-image">
                     <img src="imge/photo2.jpg" alt="Food Menu">
                 </div>
                 <div class="card-content">
-                    <h3>Web Application Development (Food Menu)</h3>
-                    <p>An interactive digital restaurant menu displaying meals in an appealing way with easy navigation.
-                    </p>
+                    <h3>Web Development (Food Menu)</h3>
+                    <p>An interactive digital restaurant menu displaying meals in an appealing way.</p>
                 </div>
             </div>
             <div class="project-card">
@@ -98,41 +92,36 @@
                     <img src="imge/photo3.jpg" alt="Furniture Store">
                 </div>
                 <div class="card-content">
-                    <h3>User Interface Design (Furniture Store)</h3>
-                    <p>A modern furniture e-commerce interface focused on simplicity and elegance for a comfortable
-                        shopping experience.</p>
+                    <h3>UI Design (Furniture Store)</h3>
+                    <p>A modern furniture e-commerce interface focused on simplicity and elegance.</p>
                 </div>
             </div>
         </div>
     </section>
-
     <section id="contact" class="full-section">
-        <h2 class="section-title">Contact Me</h2>
-        <div class="contact-links">
-            <section id="contact" class="full-section">
-                <div class="contact-container">
-                    <h2 class="section-title">Contact Me</h2>
-                    <form class="contact-form">
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" placeholder="Enter your name">
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" placeholder="example@email.com">
-                        </div>
-                        <div class="form-group">
-                            <label>Your Message</label>
-                            <textarea placeholder="Write your message"></textarea>
-                        </div>
-                        <button type="submit" class="send-btn">Send</button>
-                    </form>
+        <div class="contact-container">
+            <h2 class="section-title">Contact Me</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" placeholder="Enter your name" required>
                 </div>
-            </section>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="example@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Your Message</label>
+                    <textarea placeholder="Write your message" required></textarea>
+                </div>
+                <button type="submit" class="send-btn">Send</button>
+            </form>
+        </div>
+    </section>
 
-            <footer class="main-footer">
-                <p>© 2026 All Rights Reserved | Mona Adel</p>
-            </footer>
+    <footer class="main-footer">
+        <p>© 2026 All Rights Reserved | Mona Adel</p>
+    </footer>
 
 </body>
 
